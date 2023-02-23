@@ -30,7 +30,7 @@ def delete_employee(name: str):
     myQuery = {"name": name}
     collection.delete_one(myQuery)
 
-    return{"test_supp":get_all_employees()}
+    return{}
 
 @app.post("/create_employee")
 def create_employee( name: str,age: str,teams:list):
@@ -41,7 +41,7 @@ def create_employee( name: str,age: str,teams:list):
     myQuery = {"name":name, "age": age, "teams":teams}
     collection.insert_one(myQuery)
 
-    return{"test_supp":get_all_employees()}
+    return{}
 
 @app.put("/update_employee")
 def update_employee( oldname: str,name: str,age: str,teams: list):
@@ -53,4 +53,4 @@ def update_employee( oldname: str,name: str,age: str,teams: list):
     myQuery = {"$set":{"name":name, "age": age, "teams": teams}}
     collection.update_one(myOldQuery,myQuery)
 
-    return{"test_supp":get_all_employees()}
+    return{}
