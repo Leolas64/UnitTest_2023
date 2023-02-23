@@ -13,7 +13,7 @@ class mainTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_update_employee(self):
-        employee = {'task': 'Updated Test Task', 'importance': 'high', 'completed': True}
+        employee = {'oldname': 'Michel Dufour','name': 'Pierre Duprés', 'age': '63', 'teams': '["Technologies"]'}
         response = requests.put('http://localhost:8000/employee', json=employee)
         self.assertEqual(response.status_code, 200)
         
