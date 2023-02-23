@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "63f74e47c54531aef1529c76"
+  },
+  "name": "Pierre Dupuis",
+  "age": "48",
+  "teams": [
+    "Technology"
+  ]
+},{
+  "_id": {
+    "$oid": "63f74ecbc54531aef1529c78"
+  },
+  "name": "Jean-Francois Pierrot",
+  "age": "62",
+  "teams": [
+    "Technicien"
+  ]
+},{
+  "_id": {
+    "$oid": "63f751fd7d2f7bc73fe02c5f"
+  },
+  "name": "azertyuiop qsfgjklm",
+  "age": "18",
+  "teams": [
+    "Alternant"
+  ]
+}]
