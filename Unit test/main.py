@@ -7,11 +7,19 @@ import json
 import pymongo
 
 app = FastAPI()
+
 connect(db="hrms", host="localhost", port=27017)
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@app.post("/create_employee")
+def create_employee( name: str,age: str,teams:list):
+    myTests = pymongo.MongoClient("localhost", 27017)
+    dataBase = myTests["hrms"]
+    collection = dataBase["employee"]
+
+    myQuery = {"name":name, "age": age, "teams":teams}
+    collection.insert_one(myQuery)
+
+    return{}
 
 @app.get("/get_all_employees")
 def get_all_employees():
@@ -29,17 +37,6 @@ def delete_employee(name: str):
     collection = dataBase["employee"]
     myQuery = {"name": name}
     collection.delete_one(myQuery)
-
-    return{}
-
-@app.post("/create_employee")
-def create_employee( name: str,age: str,teams:list):
-    myTests = pymongo.MongoClient("localhost", 27017)
-    dataBase = myTests["hrms"]
-    collection = dataBase["employee"]
-
-    myQuery = {"name":name, "age": age, "teams":teams}
-    collection.insert_one(myQuery)
 
     return{}
 
